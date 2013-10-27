@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<openejb-jar
-        xmlns="http://www.openejb.org/xml/ns/openejb-jar-2.1"
-        xmlns:naming="http://geronimo.apache.org/xml/ns/naming-1.1"
-        xmlns:security="http://geronimo.apache.org/xml/ns/security-1.1"
-        xmlns:sys="http://geronimo.apache.org/xml/ns/deployment-1.2"
-        xmlns:pkgen="http://www.openejb.org/xml/ns/pkgen-2.0">
+<openejb-jar xmlns="http://www.openejb.org/xml/ns/openejb-jar-2.1"
+	xmlns:naming="http://geronimo.apache.org/xml/ns/naming-1.1"
+	xmlns:security="http://geronimo.apache.org/xml/ns/security-1.1"
+	xmlns:sys="http://geronimo.apache.org/xml/ns/deployment-1.2"
+	xmlns:pkgen="http://www.openejb.org/xml/ns/pkgen-2.0">
 
-    <sys:environment>
-<!--         <sys:moduleId> -->
-<!--             <sys:groupId>org.apache.openejb.examples.ft</sys:groupId> -->
-<!--             <sys:artifactId>PersonEJB</sys:artifactId> -->
-<!--             <sys:version>1.0-SNAPSHOT</sys:version> -->
-<!--             <sys:type>car</sys:type> -->
-<!--         </sys:moduleId> -->
-        <sys:dependencies>
-            <sys:dependency>
-                <sys:groupId>console.dbpool</sys:groupId>
-                <sys:artifactId>PeopleDB_Managed</sys:artifactId>
-            </sys:dependency>
-            <sys:dependency>
-                <sys:groupId>console.dbpool</sys:groupId>
-                <sys:artifactId>PeopleDB_Unmanaged</sys:artifactId>
-            </sys:dependency>
-        </sys:dependencies>
-    </sys:environment>
 </openejb-jar>

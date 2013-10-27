@@ -1,23 +1,26 @@
 package mpi;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 @Stateless
 public class TechnologyRepositoryEJB implements TechnologyRepository {
 
-    private List<Technology> technologies = new ArrayList<Technology>();
+    @PersistenceContext(unitName="TechnologiesPU")
+    private EntityManager entityManager;
     
     @Override
     public void store(Technology technology){
-        technologies.add(technology);
+        entityManager.persist(technology);
     }
     
+    @SuppressWarnings("unchecked")
     @Override
     public List<Technology> list(){
-        return technologies;
+        return entityManager.createQuery("select t from Technology t").getResultList();
     }
     
 }

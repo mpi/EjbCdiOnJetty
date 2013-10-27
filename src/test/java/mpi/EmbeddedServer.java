@@ -20,6 +20,14 @@ public class EmbeddedServer {
         try{
             Properties properties = new Properties();
             properties.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.openejb.client.LocalInitialContextFactory");
+            
+            properties.put("jdbc/TechnologiesDS", "new://Resource?type=DataSource");
+            properties.put("jdbc/TechnologiesDS.JdbcDriver", "org.h2.Driver");
+            properties.put("jdbc/TechnologiesDS.JdbcUrl", "jdbc:h2:mem:TechnologiesDB");
+            properties.put("jdbc/TechnologiesDS.UserName", "sa");
+            properties.put("jdbc/TechnologiesDS.Password", "");
+            properties.put("jdbc/TechnologiesDS.JtaManaged", "true");
+            
             InitialContext ctx = new InitialContext(properties);
                         
             NamingEnumeration<NameClassPair> ejbs = ctx.list("");
@@ -31,6 +39,8 @@ public class EmbeddedServer {
             TechnologiesBean technologies = (TechnologiesBean) ctx.lookup("TechnologiesEJBLocal");
             technologies.save(new Technology("Jetty"));
             technologies.save(new Technology("EJB"));
+            technologies.save(new Technology("JPA"));
+            technologies.save(new Technology("H2"));
             
             server = new Server(port);
             WebAppContext context = new WebAppContext();
