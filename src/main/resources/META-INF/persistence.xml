@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+	<persistence-unit name="PeoplePU">
+		<jta-data-source>PeopleDB_Managed</jta-data-source>
+		<non-jta-data-source>PeopleDB_Unmanaged</non-jta-data-source>
+		<properties>
+			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema" />
+		</properties>
+	</persistence-unit>
+</persistence>
